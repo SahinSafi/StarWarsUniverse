@@ -1,15 +1,25 @@
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
-        google()
-        mavenCentral()
         gradlePluginPortal()
+        mavenCentral()
+        mavenLocal()
+        google()
+        maven("https://www.jitpack.io")
+        maven("https://oss.jfrog.org/libs-snapshot")
     }
 }
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        google()
+        gradlePluginPortal()
         mavenCentral()
+        mavenLocal()
+        google()
+        maven("https://www.jitpack.io")
+        maven("https://oss.jfrog.org/libs-snapshot")
     }
 }
 

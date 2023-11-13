@@ -1,17 +1,13 @@
 @Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    alias(libs.plugins.com.android.application)
-    alias(libs.plugins.org.jetbrains.kotlin.android)
+    id("starwars.android.application")
 }
 
 android {
     namespace = "com.safi.starwarsuniverse"
-    compileSdk = 33
 
     defaultConfig {
         applicationId = "com.safi.starwarsuniverse"
-        minSdk = 24
-        targetSdk = 33
         versionCode = 1
         versionName = "1.0"
 
@@ -27,22 +23,21 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
     }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+
 }
 
 dependencies {
 
-    implementation(libs.core.ktx)
-    implementation(libs.appcompat)
+    implementation(libs.androidx.corektx)
+    implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.constraintlayout)
+    implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs.androidx.espresso.core)
 }
