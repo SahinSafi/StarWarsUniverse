@@ -4,7 +4,7 @@ plugins {
     `kotlin-dsl`
 }
 
-group = "com.safi.starwarsuniverse.buildlogic" //todo
+group = "com.safi.starwarsuniverse.buildlogic"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -25,8 +25,23 @@ dependencies {
 gradlePlugin {
     plugins {
         register("androidApplication") {
-            id = "starwars.android.application"
+            id = "convention.android.application"
             implementationClass = "AndroidApplicationConventionPlugin"
+        }
+
+        register("androidLibrary") {
+            id = "convention.android.library"
+            implementationClass = "AndroidLibraryConventionPlugin"
+        }
+
+        register("androidNavigation") {
+            id = "convention.android.navigation"
+            implementationClass = "AndroidNavigationConventionPlugin"
+        }
+
+        register("conventionFeature") {
+            id = "convention.feature"
+            implementationClass = "AndroidFeatureConventionPlugin"
         }
     }
 }

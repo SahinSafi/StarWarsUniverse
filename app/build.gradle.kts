@@ -1,6 +1,6 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
-    id("starwars.android.application")
+    alias(libs.plugins.convention.android.application)
+    alias(libs.plugins.convention.android.navigation)
 }
 
 android {
@@ -32,6 +32,16 @@ android {
 }
 
 dependencies {
+
+    implementation(projects.core.common)
+    implementation(projects.core.designSystem)
+    implementation(projects.navigation)
+
+
+    implementation(projects.feature.character)
+    implementation(projects.feature.starship)
+    implementation(projects.feature.planet)
+
 
     implementation(libs.androidx.corektx)
     implementation(libs.androidx.appcompat)

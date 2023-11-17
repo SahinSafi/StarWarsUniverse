@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/characterFragment">
+
+    <fragment
+        android:id="@+id/characterFragment"
+        android:name="com.safi.character.CharacterFragment"
+        android:label="CharacterFragment"/>
+
+    <fragment
+        android:id="@+id/starshipFragment"
+        android:name="com.safi.starship.StarshipFragment"
+        android:label="StarshipFragment"/>
+
+    <fragment
+        android:id="@+id/planetFragment"
+        android:name="com.safi.planet.PlanetFragment"
+        android:label="PlanetFragment"/>
+
+</navigation>

@@ -1,4 +1,5 @@
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+include(":feature:character")
+
 
 pluginManagement {
     includeBuild("build-logic")
@@ -23,6 +24,11 @@ dependencyResolutionManagement {
     }
 }
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "StarWarsUniverse"
 include(":app")
- 
+include(":core:common")
+include(":core:design-system")
+include(":navigation")
+include(":feature:starship")
+include(":feature:planet")
