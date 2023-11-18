@@ -1,8 +1,13 @@
 <resources>
     <string name="app_name">StarWarsUniverse</string>
 
+    <string name="image_content_description">image content</string>
+
     <string name="label_character">Character</string>
     <string name="label_starship">Starship</string>
     <string name="label_planet">Planet</string>
+
+    <string name="placeholder1_name">Name: %s</string>
+    <string name="placeholder1_gender">Gender: %s</string>
 
 </resources>
