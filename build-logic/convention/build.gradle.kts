@@ -39,6 +39,11 @@ gradlePlugin {
             implementationClass = "AndroidNavigationConventionPlugin"
         }
 
+        register("androidHilt") {
+            id = "convention.android.hilt"
+            implementationClass = "AndroidHiltConventionPlugin"
+        }
+
         register("conventionFeature") {
             id = "convention.feature"
             implementationClass = "AndroidFeatureConventionPlugin"

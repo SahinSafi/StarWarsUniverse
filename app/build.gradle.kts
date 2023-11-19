@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.convention.android.application)
     alias(libs.plugins.convention.android.navigation)
+    alias(libs.plugins.convention.android.hilt)
 }
 
 android {
@@ -15,8 +16,19 @@ android {
     }
 
     buildTypes {
+
+        debug {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+        }
+
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -34,6 +46,7 @@ android {
 dependencies {
 
     implementation(projects.core.common)
+    implementation(projects.core.data)
     implementation(projects.core.designSystem)
     implementation(projects.navigation)
 
