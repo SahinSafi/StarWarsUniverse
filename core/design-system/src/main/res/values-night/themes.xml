@@ -11,5 +11,6 @@
 
         <item name="colorSurface">@color/colorSurface</item>
         <item name="colorOnSurfaceVariant">@color/colorOnPrimaryContainer</item>
+
     </style>
 </resources>

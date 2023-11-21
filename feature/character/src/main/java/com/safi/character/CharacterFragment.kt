@@ -1,21 +1,17 @@
 package com.safi.character
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
+import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import com.safi.character.databinding.FragmentCharacterBinding
-import com.safi.domain.usecase.FetchCharacterUseCase
+import com.safi.designsystem.extfun.execute
+import com.safi.designsystem.extfun.setUpVerticalRecyclerView
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import timber.log.Timber
-import javax.inject.Inject
+import com.safi.navigation.R
 
 @AndroidEntryPoint
 class CharacterFragment : Fragment() {
@@ -23,14 +19,16 @@ class CharacterFragment : Fragment() {
     private var _binding: FragmentCharacterBinding? = null
     private val binding get() = _binding!!
 
-    private val viewModel by viewModels<CharacterViewModel>()
+    private val viewModel by hiltNavGraphViewModels<CharacterViewModel>(R.id.nav_graph_main)
+    private lateinit var adapter: CharacterAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentCharacterBinding.inflate(layoutInflater)
 
-        binding.text.text = "Hello World"
+        adapter = CharacterAdapter()
+        requireContext().setUpVerticalRecyclerView(binding.characterRV, adapter)
 
-        viewModel.fetchCharacter()
+        observeUiState()
 
         return binding.root
     }
@@ -38,6 +36,19 @@ class CharacterFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun observeUiState(){
+        execute {
+            viewModel.uiState.collect {uiState ->
+                when(uiState) {
+                    is UiState.Loading -> binding.progressIndicator.isVisible = uiState.isLoading
+                    is UiState.CharacterList -> adapter.submitList(uiState.data)
+                    is UiState.ApiError ->{}
+                }
+            }
+        }
+
     }
 
 }

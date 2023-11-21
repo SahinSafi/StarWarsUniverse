@@ -9,6 +9,7 @@
         <item name="colorOnPrimaryContainer">@color/colorOnPrimaryContainer</item>
 
         <item name="colorOnSurfaceVariant">@color/colorPrimaryContainer</item>
+
     </style>
 
     <style name="Theme.StarWarsUniverse" parent="Base.Theme.StarWarsUniverse" />
