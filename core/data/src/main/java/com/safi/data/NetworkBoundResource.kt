@@ -1,6 +1,5 @@
 package com.safi.data
 
-import android.app.Application
 import com.google.gson.JsonParser
 import com.safi.common.base.ApiResult
 import kotlinx.coroutines.CoroutineDispatcher
@@ -19,7 +18,7 @@ import java.net.SocketTimeoutException
 import javax.inject.Inject
 
 class NetworkBoundResource @Inject constructor(){
-    private  val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
+    private  val ioDispatcher: CoroutineDispatcher = Dispatchers.Main
 
     suspend fun<ResultType> downloadData(api : suspend () -> Response<ResultType>): Flow<ApiResult<ResultType>> {
         return withContext(ioDispatcher) {
@@ -39,9 +38,6 @@ class NetworkBoundResource @Inject constructor(){
                 Timber.e(error.localizedMessage)
                 emit(ApiResult.Loading(false))
                 delay(5)
-                if (error is IOException) {
-
-                }
                 emit(ApiResult.Error(message = getErrorMessage(error), code = getErrorCode(error)))
             }
         }

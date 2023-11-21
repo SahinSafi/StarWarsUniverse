@@ -25,6 +25,7 @@ hilt = "2.48.1"
 retrofit2 = "2.9.0"
 okhHttp3 = "4.12.0"
 paging = "3.2.1"
+org-jetbrains-kotlin-jvm = "1.9.0"
 
 [libraries]
 androidx-corektx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -84,6 +85,8 @@ convention-android-library = { id = "convention.android.library", version = "uns
 convention-android-navigation = { id = "convention.android.navigation", version = "unspecified" }
 convention-android-hilt = { id = "convention.android.hilt", version = "unspecified" }
 convention-feature = { id = "convention.feature", version = "unspecified" }
+convention-jvm-library = { id = "convention.jvm.library", version = "unspecified" }
+org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }
 
 [bundles]
 network = ["retrofit2-core", "retrofit2-rx3adapter", "retrofit2-gsonconverter", "okhHttp3-core", "okhHttp3-interceptor", "gson"]

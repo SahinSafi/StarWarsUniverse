@@ -44,6 +44,11 @@ gradlePlugin {
             implementationClass = "AndroidHiltConventionPlugin"
         }
 
+        register("androidJvmLibrary") {
+            id = "convention.jvm.library"
+            implementationClass = "JvmLibraryConventionPlugin"
+        }
+
         register("conventionFeature") {
             id = "convention.feature"
             implementationClass = "AndroidFeatureConventionPlugin"

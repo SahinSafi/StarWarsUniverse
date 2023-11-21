@@ -10,6 +10,9 @@ android {
 
 dependencies {
     implementation(projects.core.common)
+    implementation(projects.core.domain)
+    implementation(projects.core.model.response)
+    implementation(projects.core.model.entity)
     implementation(libs.bundles.network)
     implementation(libs.log.timber)
 }

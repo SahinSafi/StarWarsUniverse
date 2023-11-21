@@ -13,6 +13,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             pluginManager.apply {
                 apply("convention.android.library")
                 apply("convention.android.navigation")
+                apply("convention.android.hilt")
             }
             extensions.configure<LibraryExtension> {
                 defaultConfig {
@@ -25,12 +26,9 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
             }
 
             dependencies {
-//                add("implementation", project(":core:di"))
-//                add("implementation", project(":core:domain"))
-//                add("implementation", project(":core:model:entity"))
-//                add("implementation", project(":library:sharedpref"))
-//                add("implementation", project(":common"))
-//                add("implementation", project(":core:ui"))
+                add("implementation", project(":core:domain"))
+                add("implementation", project(":core:model:entity"))
+                add("implementation", project(":core:common"))
                 add("implementation", project(":navigation"))
                 add("implementation", project(":core:design-system"))
 
