@@ -7,11 +7,13 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
+import androidx.paging.LoadState
 import com.safi.character.databinding.FragmentCharacterBinding
 import com.safi.designsystem.extfun.execute
 import com.safi.designsystem.extfun.setUpVerticalRecyclerView
-import dagger.hilt.android.AndroidEntryPoint
 import com.safi.navigation.R
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class CharacterFragment : Fragment() {
@@ -39,14 +41,23 @@ class CharacterFragment : Fragment() {
     }
 
     private fun observeUiState(){
+
         execute {
-            viewModel.uiState.collect {uiState ->
-                when(uiState) {
-                    is UiState.Loading -> binding.progressIndicator.isVisible = uiState.isLoading
-                    is UiState.CharacterList -> adapter.submitList(uiState.data)
-                    is UiState.ApiError ->{}
-                }
+            adapter.loadStateFlow.collectLatest { loadStates ->
+                binding.progressIndicator.isVisible = loadStates.refresh is LoadState.Loading || loadStates.prepend is LoadState.Loading
+                binding.bottomProgressIndicator.isVisible = loadStates.append is LoadState.Loading
+
+//                binding.progressIndicator.isVisible = loadState.refresh !is LoadState.Loading
+//                binding.progressIndicator.isVisible = loadState.refresh is LoadState.Error
             }
+        }
+
+        execute {
+
+            viewModel.uiState.collect{ uiState ->
+                adapter.submitData(uiState)
+            }
+
         }
 
     }

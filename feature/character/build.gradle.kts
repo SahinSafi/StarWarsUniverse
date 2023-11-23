@@ -6,3 +6,8 @@ plugins {
 android {
     namespace = "com.safi.character"
 }
+
+dependencies {
+    implementation(libs.androidx.paging)
+    implementation(libs.image.circle)
+}

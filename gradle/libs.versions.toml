@@ -26,6 +26,7 @@ retrofit2 = "2.9.0"
 okhHttp3 = "4.12.0"
 paging = "3.2.1"
 org-jetbrains-kotlin-jvm = "1.9.0"
+circleImage = "3.1.0"
 
 [libraries]
 androidx-corektx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -46,6 +47,7 @@ androidx-lifecycle-runtime = {group = "androidx.lifecycle", name = "lifecycle-ru
 androidx-lifecycle-commonjava8 = {group = "androidx.lifecycle", name = "lifecycle-common-java8", version.ref="lifecycle"}
 androidx-lifecycle-service = {group = "androidx.lifecycle", name = "lifecycle-service", version.ref="lifecycle"}
 
+image-circle = {group = "de.hdodenhof", name = "circleimageview", version.ref="circleImage"}
 image-picasso = {group = "com.squareup.picasso", name = "picasso", version.ref="picasso"}
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
 gson = {group = "com.google.code.gson", name = "gson", version.ref="gson"}

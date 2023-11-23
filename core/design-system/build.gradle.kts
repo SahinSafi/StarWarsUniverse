@@ -15,4 +15,5 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.fragment)
     implementation(libs.androidx.lifecycle.livedata)
+    implementation(libs.androidx.paging)
 }
