@@ -58,7 +58,7 @@ class CharacterFragment : Fragment() {
                     is PagingState.Appending -> binding.bottomProgressIndicator.isVisible = pagingState.isAppending
                     is PagingState.Error -> {
                         binding.errorLayoutInc.root.isVisible = true
-                        setNetworkErrorUiData("Connection failed", pagingState.message)
+                        setNetworkErrorUiData(pagingState.message)
                     }
                 }
             }
@@ -73,8 +73,8 @@ class CharacterFragment : Fragment() {
 
     }
 
-    private fun setNetworkErrorUiData(title : String, message : String){
-        binding.errorLayoutInc.errorTitleTV.text = title
+    private fun setNetworkErrorUiData(message : String){
+        binding.errorLayoutInc.errorTitleTV.text = getString(com.safi.designsystem.R.string.message_connection_failed)
         binding.errorLayoutInc.errorMessageTV.text = message
     }
 

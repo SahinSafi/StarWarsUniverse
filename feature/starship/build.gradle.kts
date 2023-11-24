@@ -7,3 +7,8 @@ plugins {
 android {
     namespace = "com.safi.starship"
 }
+
+dependencies {
+    implementation(libs.androidx.paging)
+    implementation(libs.image.circle)
+}
