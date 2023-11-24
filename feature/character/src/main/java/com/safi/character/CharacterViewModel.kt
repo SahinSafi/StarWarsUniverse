@@ -6,6 +6,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
+import com.safi.domain.usecase.FetchCharacterUseCase
 import com.safi.entity.CharacterListItemEntity
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.emptyFlow
@@ -13,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CharacterViewModel @Inject constructor(
-    private val characterPagingSource: CharacterPagingSource
+    private val fetchCharacterUseCase: FetchCharacterUseCase
 ): ViewModel() {
 
     private var _uiState = emptyFlow<PagingData<CharacterListItemEntity>>()
@@ -23,8 +24,8 @@ class CharacterViewModel @Inject constructor(
 
     private fun fetchCharacter() {
         _uiState = Pager(
-            config = PagingConfig(pageSize = 10, enablePlaceholders = false),
-            pagingSourceFactory = { characterPagingSource }).flow.cachedIn(viewModelScope)
+            config = PagingConfig(pageSize = 10, maxSize = 100),
+            pagingSourceFactory = { CharacterPagingSource(fetchCharacterUseCase) }).flow.cachedIn(viewModelScope)
 
     }
 

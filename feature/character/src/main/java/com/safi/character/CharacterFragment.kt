@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
-import androidx.paging.LoadState
 import com.safi.character.databinding.FragmentCharacterBinding
+import com.safi.designsystem.extfun.PagingState
 import com.safi.designsystem.extfun.execute
+import com.safi.designsystem.extfun.observeState
 import com.safi.designsystem.extfun.setUpVerticalRecyclerView
 import com.safi.navigation.R
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collectLatest
 
 @AndroidEntryPoint
 class CharacterFragment : Fragment() {
@@ -31,6 +31,7 @@ class CharacterFragment : Fragment() {
         requireContext().setUpVerticalRecyclerView(binding.characterRV, adapter)
 
         observeUiState()
+        clickEventListener()
 
         return binding.root
     }
@@ -40,15 +41,26 @@ class CharacterFragment : Fragment() {
         _binding = null
     }
 
+    private fun clickEventListener(){
+        binding.errorLayoutInc.retryButton.setOnClickListener {
+            binding.errorLayoutInc.root.isVisible = false
+            adapter.retry()
+        }
+    }
+
     private fun observeUiState(){
 
         execute {
-            adapter.loadStateFlow.collectLatest { loadStates ->
-                binding.progressIndicator.isVisible = loadStates.refresh is LoadState.Loading || loadStates.prepend is LoadState.Loading
-                binding.bottomProgressIndicator.isVisible = loadStates.append is LoadState.Loading
+            adapter.loadStateFlow.observeState { pagingState ->
 
-//                binding.progressIndicator.isVisible = loadState.refresh !is LoadState.Loading
-//                binding.progressIndicator.isVisible = loadState.refresh is LoadState.Error
+                when(pagingState) {
+                    is PagingState.Prepending -> binding.progressIndicator.isVisible = pagingState.isPrepending
+                    is PagingState.Appending -> binding.bottomProgressIndicator.isVisible = pagingState.isAppending
+                    is PagingState.Error -> {
+                        binding.errorLayoutInc.root.isVisible = true
+                        setNetworkErrorUiData("Connection failed", pagingState.message)
+                    }
+                }
             }
         }
 
@@ -57,9 +69,13 @@ class CharacterFragment : Fragment() {
             viewModel.uiState.collect{ uiState ->
                 adapter.submitData(uiState)
             }
-
         }
 
+    }
+
+    private fun setNetworkErrorUiData(title : String, message : String){
+        binding.errorLayoutInc.errorTitleTV.text = title
+        binding.errorLayoutInc.errorMessageTV.text = message
     }
 
 }

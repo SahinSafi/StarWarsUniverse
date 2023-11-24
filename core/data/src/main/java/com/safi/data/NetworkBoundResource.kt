@@ -1,6 +1,7 @@
 package com.safi.data
 
 import com.google.gson.JsonParser
+import com.safi.common.AppConstant
 import com.safi.common.base.ApiResult
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -29,9 +30,9 @@ class NetworkBoundResource @Inject constructor(){
                 if (response.isSuccessful){
                     response.body()?.let {
                         emit(ApiResult.Success(data = it))
-                    }?: emit(ApiResult.Error(message = "Unknown error occurred", code = 0))
+                    }?: emit(ApiResult.Error(message = AppConstant.errorUnknown, code = response.code()))
                 }else{
-                    emit(ApiResult.Error(message = parserErrorBody(response.errorBody()), code = response.code()))
+                    emit(ApiResult.Error(message = response.message(), code = response.code()))
                 }
 
             }.catch { error->
@@ -43,27 +44,19 @@ class NetworkBoundResource @Inject constructor(){
         }
     }
 
-    private fun parserErrorBody(response: ResponseBody?):String{
-        return response?.let {
-            val errorMessage = JsonParser.parseString(it.string()).asJsonObject["message"].asString
-            errorMessage.ifEmpty { "Whoops! Something went wrong" }
-            errorMessage
-        }?: "Unknown error occurred"
-    }
-
     private fun getErrorMessage(throwable: Throwable?):String{
         when (throwable) {
-            is SocketTimeoutException -> return "Whoops! connection time out, try again!"
-            is IOException -> return "No internet connection, try again!"
+            is SocketTimeoutException -> return AppConstant.errorTimeOut
+            is IOException -> return AppConstant.errorNoInternet
             is HttpException -> return try {
                 val errorJsonString = throwable.response()?.errorBody()?.string()
                 val errorMessage = JsonParser.parseString(errorJsonString).asJsonObject["message"].asString
-                errorMessage.ifEmpty { "Whoops! Something went wrong" }
+                errorMessage.ifEmpty { AppConstant.errorSomethingWrong }
             } catch (e: Exception) {
-                "Unknown error occur, please try again!"
+                AppConstant.errorUnknown
             }
         }
-        return "Unknown error occur, please try again!"
+        return AppConstant.errorUnknown
     }
 
     private fun getErrorCode(throwable: Throwable?):Int{
