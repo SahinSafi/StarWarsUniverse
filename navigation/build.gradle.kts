@@ -7,3 +7,7 @@ plugins {
 android {
     namespace = "com.safi.navigation"
 }
+
+dependencies {
+    implementation(projects.core.model.entity)
+}

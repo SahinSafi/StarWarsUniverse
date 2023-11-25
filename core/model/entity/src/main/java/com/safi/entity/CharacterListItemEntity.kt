@@ -1,5 +1,7 @@
 package com.safi.entity
 
+import java.io.Serializable
+
 data class CharacterListItemEntity(
     val birth_year: String,
     val eye_color: String,
@@ -9,4 +11,4 @@ data class CharacterListItemEntity(
     val mass: String,
     val name: String,
     val skin_color: String,
-)
+) : Serializable

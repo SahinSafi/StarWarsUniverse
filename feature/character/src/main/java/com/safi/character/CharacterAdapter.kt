@@ -9,7 +9,8 @@ import com.safi.designsystem.base.BasePagingAdapter
 import com.safi.entity.CharacterListItemEntity
 import com.safi.designsystem.R as Assets
 
-class CharacterAdapter : BasePagingAdapter<CharacterListItemEntity, ItemCharacterBinding>(
+class CharacterAdapter(private val onClickItem:(item : CharacterListItemEntity) -> Unit) :
+    BasePagingAdapter<CharacterListItemEntity, ItemCharacterBinding>(
 
     diffCallback = object : DiffUtil.ItemCallback<CharacterListItemEntity>(){
 
@@ -26,6 +27,10 @@ class CharacterAdapter : BasePagingAdapter<CharacterListItemEntity, ItemCharacte
     override fun bind(binding: ItemCharacterBinding, item: CharacterListItemEntity, position: Int) {
         binding.characterNameTV.text = binding.root.context.getString(Assets.string.placeholder1_name, item.name)
         binding.genderTV.text = binding.root.context.getString(Assets.string.placeholder1_gender, item.gender)
+
+        binding.root.setOnClickListener {
+            onClickItem.invoke(item)
+        }
     }
 
 }

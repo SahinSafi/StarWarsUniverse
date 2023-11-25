@@ -7,7 +7,22 @@
     <fragment
         android:id="@+id/characterFragment"
         android:name="com.safi.character.CharacterFragment"
-        android:label="CharacterFragment"/>
+        android:label="CharacterFragment">
+        <action
+            android:id="@+id/action_navigate_to_characterDetailsFragment"
+            app:destination="@id/characterDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/characterDetailsFragment"
+        android:name="com.safi.character.CharacterDetailsFragment"
+        android:label="CharacterDetailsFragment">
+
+        <argument
+            android:name="characterListItemEntity"
+            app:argType="com.safi.entity.CharacterListItemEntity"/>
+
+    </fragment>
 
     <fragment
         android:id="@+id/starshipFragment"

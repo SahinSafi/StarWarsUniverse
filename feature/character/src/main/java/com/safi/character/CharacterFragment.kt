@@ -10,6 +10,7 @@ import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import com.safi.character.databinding.FragmentCharacterBinding
 import com.safi.designsystem.extfun.PagingState
 import com.safi.designsystem.extfun.execute
+import com.safi.designsystem.extfun.navigate
 import com.safi.designsystem.extfun.observeState
 import com.safi.designsystem.extfun.setUpVerticalRecyclerView
 import com.safi.navigation.R
@@ -25,9 +26,11 @@ class CharacterFragment : Fragment() {
     private lateinit var adapter: CharacterAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentCharacterBinding.inflate(layoutInflater)
+        _binding = FragmentCharacterBinding.inflate(inflater, container, false)
 
-        adapter = CharacterAdapter()
+        adapter = CharacterAdapter{
+            navigate(CharacterFragmentDirections.actionNavigateToCharacterDetailsFragment(it))
+        }
         requireContext().setUpVerticalRecyclerView(binding.characterRV, adapter)
 
         observeUiState()

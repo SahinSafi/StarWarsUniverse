@@ -8,8 +8,13 @@
     <string name="label_planet">Planet</string>
     <string name="label_retry">Retry</string>
 
+    <string name="title_character_details">Character details</string>
+
     <string name="placeholder1_name">Name: %s</string>
     <string name="placeholder1_gender">Gender: %s</string>
+    <string name="placeholder1_hair_color">Hair color: %s</string>
+    <string name="placeholder1_skin_color">Skin color: %s</string>
+    <string name="placeholder1_birth_year">Birth year: %s</string>
     <string name="placeholder1_model">Model: %s</string>
     <string name="placeholder1_gravity">Gravity: %s</string>
 
