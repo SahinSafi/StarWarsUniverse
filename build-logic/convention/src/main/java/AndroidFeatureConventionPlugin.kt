@@ -30,7 +30,7 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 add("implementation", project(":core:model:entity"))
                 add("implementation", project(":core:common"))
                 add("implementation", project(":navigation"))
-                add("implementation", project(":core:design-system"))
+                add("implementation", project(":core:theme-ui"))
 
                 add("implementation", libs.findLibrary("androidx.appcompat").get())
                 add("implementation", libs.findLibrary("androidx.corektx").get())

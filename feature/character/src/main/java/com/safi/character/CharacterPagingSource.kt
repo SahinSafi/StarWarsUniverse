@@ -26,6 +26,7 @@ class CharacterPagingSource (
             loadResult = when(apiResult){
 
                 is ApiResult.Error -> {
+                    // handling page not found exception which create issue in ui after trying to fetch last page.
                     if (apiResult.code == 404)
                         LoadResult.Page(
                             data = emptyList(),

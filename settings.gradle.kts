@@ -26,7 +26,7 @@ rootProject.name = "StarWarsUniverse"
 include(":app")
 
 include(":core:common")
-include(":core:design-system")
+include(":core:theme-ui")
 include(":core:data")
 include(":core:domain")
 include(":core:model:response")

@@ -50,7 +50,7 @@ dependencies {
     implementation(projects.core.domain)
     implementation(projects.core.model.response)
     implementation(projects.core.model.entity)
-    implementation(projects.core.designSystem)
+    implementation(projects.core.themeUi)
     implementation(projects.navigation)
 
 
