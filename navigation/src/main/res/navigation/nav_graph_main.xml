@@ -29,7 +29,22 @@
     <fragment
         android:id="@+id/starshipFragment"
         android:name="com.safi.starship.StarshipFragment"
-        android:label="StarshipFragment"/>
+        android:label="StarshipFragment">
+        <action
+            android:id="@+id/action_navigate_to_starshipDetailsFragment"
+            app:destination="@id/starshipDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/starshipDetailsFragment"
+        android:name="com.safi.starship.StarshipDetailsFragment"
+        android:label="StarshipDetailsFragment">
+
+        <argument
+            android:name="starshipListItemEntity"
+            app:argType="com.safi.entity.StarshipListItemEntity"/>
+
+    </fragment>
 
     <fragment
         android:id="@+id/planetFragment"

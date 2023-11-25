@@ -4,7 +4,7 @@ data class CharactersApiResponse(
     val count: Int?,
     val next: String?,
     val previous: String?,
-    val results: List<Result>
+    val results: List<Result>?
 )
 
 data class Result(

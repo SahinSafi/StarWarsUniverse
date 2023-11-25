@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import com.safi.designsystem.extfun.PagingState
 import com.safi.designsystem.extfun.execute
+import com.safi.designsystem.extfun.navigate
 import com.safi.designsystem.extfun.observeState
 import com.safi.designsystem.extfun.setUpVerticalRecyclerView
 import com.safi.navigation.R
@@ -30,7 +31,9 @@ class StarshipFragment : Fragment() {
     ): View {
         _binding = FragmentStarshipBinding.inflate(inflater, container, false)
 
-        adapter = StarshipAdapter()
+        adapter = StarshipAdapter{
+            navigate(StarshipFragmentDirections.actionNavigateToStarshipDetailsFragment(it))
+        }
         requireContext().setUpVerticalRecyclerView(binding.characterRV, adapter)
 
         observeUiState()

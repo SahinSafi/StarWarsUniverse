@@ -8,7 +8,8 @@ import com.safi.entity.StarshipListItemEntity
 import com.safi.starship.databinding.ItemStarshipBinding
 import com.safi.designsystem.R as Assets
 
-class StarshipAdapter : BasePagingAdapter<StarshipListItemEntity, ItemStarshipBinding>(
+class StarshipAdapter(private val onClickItem:(item : StarshipListItemEntity) -> Unit) :
+    BasePagingAdapter<StarshipListItemEntity, ItemStarshipBinding>(
 
     diffCallback = object : DiffUtil.ItemCallback<StarshipListItemEntity>(){
 
@@ -25,6 +26,10 @@ class StarshipAdapter : BasePagingAdapter<StarshipListItemEntity, ItemStarshipBi
     override fun bind(binding: ItemStarshipBinding, item: StarshipListItemEntity, position: Int) {
         binding.characterNameTV.text = binding.root.context.getString(Assets.string.placeholder1_name, item.name)
         binding.modelTV.text = binding.root.context.getString(Assets.string.placeholder1_model, item.model)
+
+        binding.root.setOnClickListener {
+            onClickItem.invoke(item)
+        }
     }
 
 }

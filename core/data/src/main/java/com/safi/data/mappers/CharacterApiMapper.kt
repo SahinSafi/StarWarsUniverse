@@ -7,7 +7,7 @@ import javax.inject.Inject
 class CharacterApiMapper @Inject constructor() : Mapper<CharactersApiResponse, List<CharacterListItemEntity>> {
 
     override fun mapFrom(type: CharactersApiResponse): List<CharacterListItemEntity> {
-        return type.results.map {
+        return type.results?.map {
             CharacterListItemEntity(
                 birth_year = it.birth_year?:"",
                 eye_color = it.eye_color?:"",
@@ -18,6 +18,6 @@ class CharacterApiMapper @Inject constructor() : Mapper<CharactersApiResponse, L
                 name = it.name?:"",
                 skin_color = it.skin_color?:"",
             )
-        }
+        }?: emptyList()
     }
 }

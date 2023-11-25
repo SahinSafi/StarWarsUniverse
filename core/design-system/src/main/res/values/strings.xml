@@ -10,6 +10,7 @@
 
     <string name="title_character_details">Character details</string>
     <string name="title_planet_details">Planet details</string>
+    <string name="title_starship_details">Starship details</string>
 
     <string name="placeholder1_name">Name: %s</string>
     <string name="placeholder1_gender">Gender: %s</string>
@@ -17,6 +18,9 @@
     <string name="placeholder1_skin_color">Skin color: %s</string>
     <string name="placeholder1_birth_year">Birth year: %s</string>
     <string name="placeholder1_model">Model: %s</string>
+    <string name="placeholder1_cargo_capacity">Cargo capacity: %s</string>
+    <string name="placeholder1_crew">Crew: %s</string>
+    <string name="placeholder1_length">Length: %s</string>
     <string name="placeholder1_gravity">Gravity: %s</string>
     <string name="placeholder1_diameter">Diameter: %s</string>
     <string name="placeholder1_climate">Climate: %s</string>

@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.safi.designsystem.R
 import com.safi.planet.databinding.FragmentPlanetDetailsBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PlanetDetailsFragment : Fragment() {
 
     private var _binding: FragmentPlanetDetailsBinding? = null
