@@ -13,7 +13,9 @@ import com.safi.designsystem.extfun.observeState
 import com.safi.designsystem.extfun.setUpVerticalRecyclerView
 import com.safi.navigation.R
 import com.safi.starship.databinding.FragmentStarshipBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class StarshipFragment : Fragment() {
 
     private var _binding: FragmentStarshipBinding? = null

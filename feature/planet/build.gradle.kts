@@ -7,3 +7,7 @@ plugins {
 android {
     namespace = "com.safi.planet"
 }
+
+dependencies {
+    implementation(libs.androidx.paging)
+}

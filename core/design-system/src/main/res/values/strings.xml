@@ -11,6 +11,7 @@
     <string name="placeholder1_name">Name: %s</string>
     <string name="placeholder1_gender">Gender: %s</string>
     <string name="placeholder1_model">Model: %s</string>
+    <string name="placeholder1_gravity">Gravity: %s</string>
 
     <string name="message_connection_failed">Connection failed</string>
 

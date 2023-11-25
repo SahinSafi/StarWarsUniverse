@@ -22,7 +22,7 @@
             android:text="@string/placeholder1_name"
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_regular"
-            app:layout_constraintBottom_toTopOf="@+id/modelTV"
+            app:layout_constraintBottom_toTopOf="@+id/gravityTV"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,10 +30,10 @@
             app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
-            android:id="@+id/modelTV"
+            android:id="@+id/gravityTV"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/placeholder1_model"
+            android:text="@string/placeholder1_gender"
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_medium"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,17 +42,15 @@
             app:layout_constraintTop_toBottomOf="@+id/characterNameTV" />
 
         <ImageView
-            android:id="@+id/bannerImg"
             android:layout_width="wrap_content"
             android:layout_height="128dp"
-            android:src="@drawable/banner_starship"
+            android:src="@drawable/banner_planet"
             android:scaleType="centerCrop"
-            android:contentDescription="@string/image_content_description"
             android:layout_marginVertical="@dimen/margin_16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/modelTV" />
+            app:layout_constraintTop_toBottomOf="@+id/gravityTV" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

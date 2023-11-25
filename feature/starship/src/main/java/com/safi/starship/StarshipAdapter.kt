@@ -24,7 +24,7 @@ class StarshipAdapter : BasePagingAdapter<StarshipListItemEntity, ItemStarshipBi
 
     override fun bind(binding: ItemStarshipBinding, item: StarshipListItemEntity, position: Int) {
         binding.characterNameTV.text = binding.root.context.getString(Assets.string.placeholder1_name, item.name)
-        binding.genderTV.text = binding.root.context.getString(Assets.string.placeholder1_model, item.model)
+        binding.modelTV.text = binding.root.context.getString(Assets.string.placeholder1_model, item.model)
     }
 
 }
