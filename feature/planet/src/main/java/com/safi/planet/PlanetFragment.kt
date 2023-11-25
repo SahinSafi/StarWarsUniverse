@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
 import com.safi.designsystem.extfun.PagingState
 import com.safi.designsystem.extfun.execute
+import com.safi.designsystem.extfun.navigate
 import com.safi.designsystem.extfun.observeState
 import com.safi.designsystem.extfun.setUpVerticalRecyclerView
 import com.safi.navigation.R
@@ -30,7 +31,9 @@ class PlanetFragment : Fragment() {
     ): View {
         _binding = FragmentPlanetBinding.inflate(inflater, container, false)
 
-        adapter = PlanetAdapter()
+        adapter = PlanetAdapter{
+            navigate(PlanetFragmentDirections.actionNavigateToPlanetDetailsFragment(it))
+        }
         requireContext().setUpVerticalRecyclerView(binding.planetRV, adapter)
 
         observeUiState()

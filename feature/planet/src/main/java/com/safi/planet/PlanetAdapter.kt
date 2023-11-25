@@ -8,7 +8,7 @@ import com.safi.entity.PlanetListItemEntity
 import com.safi.planet.databinding.ItemPlanetBinding
 import com.safi.designsystem.R as Assets
 
-class PlanetAdapter : BasePagingAdapter<PlanetListItemEntity, ItemPlanetBinding>(
+class PlanetAdapter(private val onClickItem:(item : PlanetListItemEntity) -> Unit) : BasePagingAdapter<PlanetListItemEntity, ItemPlanetBinding>(
 
     diffCallback = object : DiffUtil.ItemCallback<PlanetListItemEntity>(){
 
@@ -25,6 +25,10 @@ class PlanetAdapter : BasePagingAdapter<PlanetListItemEntity, ItemPlanetBinding>
     override fun bind(binding: ItemPlanetBinding, item: PlanetListItemEntity, position: Int) {
         binding.characterNameTV.text = binding.root.context.getString(Assets.string.placeholder1_name, item.name)
         binding.gravityTV.text = binding.root.context.getString(Assets.string.placeholder1_gravity, item.gravity)
+
+        binding.root.setOnClickListener {
+            onClickItem.invoke(item)
+        }
     }
 
 }

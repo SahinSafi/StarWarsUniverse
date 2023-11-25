@@ -16,15 +16,17 @@ class CharacterDetailsFragment : Fragment() {
 
     private val args by navArgs<CharacterDetailsFragmentArgs>()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentCharacterDetailsBinding.inflate(inflater, container, false)
 
         bindArgsWithUi()
 
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun bindArgsWithUi(){

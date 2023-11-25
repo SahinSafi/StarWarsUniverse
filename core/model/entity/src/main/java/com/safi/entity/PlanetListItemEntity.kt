@@ -1,5 +1,7 @@
 package com.safi.entity
 
+import java.io.Serializable
+
 data class PlanetListItemEntity(
     val climate: String,
     val diameter: String,
@@ -10,4 +12,4 @@ data class PlanetListItemEntity(
     val rotation_period: String,
     val surface_water: String,
     val terrain: String,
-)
+) : Serializable

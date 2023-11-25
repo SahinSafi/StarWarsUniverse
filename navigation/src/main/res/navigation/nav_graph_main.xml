@@ -24,6 +24,8 @@
 
     </fragment>
 
+
+
     <fragment
         android:id="@+id/starshipFragment"
         android:name="com.safi.starship.StarshipFragment"
@@ -32,6 +34,21 @@
     <fragment
         android:id="@+id/planetFragment"
         android:name="com.safi.planet.PlanetFragment"
-        android:label="PlanetFragment"/>
+        android:label="PlanetFragment">
+        <action
+            android:id="@+id/action_navigate_to_planetDetailsFragment"
+            app:destination="@id/planetDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/planetDetailsFragment"
+        android:name="com.safi.planet.PlanetDetailsFragment"
+        android:label="PlanetDetailsFragment">
+
+        <argument
+            android:name="planetListItemEntity"
+            app:argType="com.safi.entity.PlanetListItemEntity"/>
+
+    </fragment>
 
 </navigation>

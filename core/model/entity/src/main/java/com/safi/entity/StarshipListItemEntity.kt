@@ -1,5 +1,7 @@
 package com.safi.entity
 
+import java.io.Serializable
+
 data class StarshipListItemEntity(
     val MGLT: String,
     val cargo_capacity: String,
@@ -14,4 +16,4 @@ data class StarshipListItemEntity(
     val name: String,
     val passengers: String,
     val starship_class: String,
-)
+) : Serializable
