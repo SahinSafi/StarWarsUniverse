@@ -5,6 +5,7 @@ import androidx.paging.PagingState
 import com.safi.common.base.ApiResult
 import com.safi.domain.usecase.FetchCharacterUseCase
 import com.safi.entity.CharacterListItemEntity
+import timber.log.Timber
 
 class CharacterPagingSource (
     private val fetchCharacterUseCase: FetchCharacterUseCase

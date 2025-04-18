@@ -25,7 +25,8 @@ class CharacterViewModel @Inject constructor(
     private fun fetchCharacter() {
         _uiState = Pager(
             config = PagingConfig(pageSize = 10, maxSize = 100),
-            pagingSourceFactory = { CharacterPagingSource(fetchCharacterUseCase) }).flow.cachedIn(viewModelScope)
+            pagingSourceFactory = { CharacterPagingSource(fetchCharacterUseCase) }
+        ).flow.cachedIn(viewModelScope)
 
     }
 

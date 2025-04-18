@@ -15,6 +15,7 @@ import com.safi.designsystem.extfun.observeState
 import com.safi.designsystem.extfun.setUpVerticalRecyclerView
 import com.safi.navigation.R
 import dagger.hilt.android.AndroidEntryPoint
+import timber.log.Timber
 
 @AndroidEntryPoint
 class CharacterFragment : Fragment() {

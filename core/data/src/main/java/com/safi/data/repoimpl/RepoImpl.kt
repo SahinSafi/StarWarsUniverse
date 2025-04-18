@@ -11,6 +11,7 @@ import com.safi.domain.repository.Repository
 import com.safi.entity.CharacterListItemEntity
 import com.safi.entity.PlanetListItemEntity
 import com.safi.entity.StarshipListItemEntity
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
@@ -25,6 +26,7 @@ class RepoImpl @Inject constructor(
     override suspend fun fetchCharacters(page: Int): Flow<ApiResult<List<CharacterListItemEntity>>> {
         return mapResponseToEntity(
             response = networkBoundResource.downloadData {
+                delay(2000) // to see loading functionality
                 apiService.fetchCharacters(page)
             },
             mapper = characterApiMapper

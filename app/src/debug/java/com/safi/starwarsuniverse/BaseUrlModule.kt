@@ -11,7 +11,7 @@ import dagger.hilt.components.SingletonComponent
 class BaseUrlModule{
     @Provides
     @StarWarsBaseUrl
-    fun provideBaseUrl():String = "https://swapi.dev/api/"
+    fun provideBaseUrl():String = "https://sahinsafi.github.io/JsonHosting/"
 
 }
 

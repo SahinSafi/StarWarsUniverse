@@ -1,13 +1,12 @@
 package com.safi.response
 
 data class CharactersApiResponse(
-    val count: Int?,
-    val next: String?,
-    val previous: String?,
-    val results: List<Result>?
+    val page: Int?,
+    val result: List<Result>?
 )
 
 data class Result(
+    val id: Int?,
     val birth_year: String?,
     val created: String?,
     val edited: String?,

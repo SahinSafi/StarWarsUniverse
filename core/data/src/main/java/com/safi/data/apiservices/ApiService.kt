@@ -12,8 +12,8 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("people/")
-    suspend fun fetchCharacters(@Query("page") page : Int) : Response<CharactersApiResponse>
+    @GET("characters/{page}.json")
+    suspend fun fetchCharacters(@Path("page") page : Int) : Response<CharactersApiResponse>
 
     @GET("starships/")
     suspend fun fetchStarships(@Query("page") page : Int) : Response<StarshipApiResponse>

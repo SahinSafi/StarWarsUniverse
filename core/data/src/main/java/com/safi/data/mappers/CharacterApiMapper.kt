@@ -7,8 +7,9 @@ import javax.inject.Inject
 class CharacterApiMapper @Inject constructor() : Mapper<CharactersApiResponse, List<CharacterListItemEntity>> {
 
     override fun mapFrom(type: CharactersApiResponse): List<CharacterListItemEntity> {
-        return type.results?.map {
+        return type.result?.map {
             CharacterListItemEntity(
+                id = it.id ?: -1,
                 birth_year = it.birth_year?:"",
                 eye_color = it.eye_color?:"",
                 gender = it.gender?:"",
