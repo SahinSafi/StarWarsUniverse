@@ -42,12 +42,6 @@ It reflects real-world patterns and is designed to be a boilerplate or reference
 
 ---
 
-## 📸 Screenshots
-
-_Coming soon..._ 😉
-
----
-
 ## 🚀 Getting Started
 
 Clone the project and open it in Android Studio Giraffe or later.  
