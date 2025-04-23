@@ -1,9 +1,7 @@
 package com.safi.response
 
 data class StarshipApiResponse(
-    val count: Int?,
-    val next: String?,
-    val previous: String?,
+    val page : Int?,
     val results: List<Starship>
 )
 

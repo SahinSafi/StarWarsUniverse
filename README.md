@@ -2,14 +2,60 @@
 
 Project for Reference
 
-## Technologies Utilized:
+# 🌌 Star Wars Planets Explorer
 
-## MVVM-Clean Architecture: A software architectural pattern that separates application concerns into distinct layers, promoting maintainability and testability.
+**Tech Stack:** Kotlin · Clean Architecture · Multi-Module · Paging 3 · Navigation Component · Version Catalog · Convention Plugins
 
-## Multi-Module Architecture: A modular approach to software development, dividing the project into smaller, independent modules that can be developed, tested, and deployed independently.
+Explore a galaxy far, far away with the **Star Wars Planets Explorer** — an Android app that displays planets from the Star Wars universe using data from a public API.  
+This project demonstrates modern Android development best practices and scalable architecture.
 
-## Version Catalog and Convention Plugin: A plugin that manages and organizes versions of project dependencies, ensuring consistency and compatibility.
+<img src="screenshots/Screenshot_1.png" width="150" height="300em" /> <img src="screenshots/Screenshot_2.png" width="150" height="300em" /> <img src="screenshots/Screenshot_3.png" width="150" height="300em" /> <img src="screenshots/Screenshot_4.png" width="150" height="300em" />
 
-## Paging3: A library for handling data pagination in Android applications, facilitating efficient data retrieval and display.
+---
 
-## Navigation Component: An Android Jetpack library for managing navigation between different screens within an application.
+## 🔧 Features
+
+- **Clean Architecture**  
+  Layered architecture (`presentation`, `domain`, `data`) ensuring separation of concerns, testability, and scalability.
+
+- **Multi-Module Structure**  
+  Modularized project (`app`, `core`, `feature`, `common`, etc.) for better code isolation and faster build times.
+
+- **Paging 3 Library**  
+  Efficient infinite scroll with automatic data loading, error handling, and UI updates.
+
+- **Navigation Component**  
+  Simplified navigation and safe argument passing with support for nested navigation graphs.
+
+- **Version Catalog**  
+  Centralized dependency management using `libs.versions.toml` for better maintainability.
+
+- **Convention Plugins**  
+  Custom Gradle plugins to enforce consistent build configurations and reduce boilerplate.
+
+---
+
+## 🎯 Why This Project Matters
+
+This project is not just a showcase of a sleek UI but also a practical implementation of **scalable, maintainable Android architecture**.  
+It reflects real-world patterns and is designed to be a boilerplate or reference for larger projects.
+
+---
+
+## 📸 Screenshots
+
+_Coming soon..._ 😉
+
+---
+
+## 🚀 Getting Started
+
+Clone the project and open it in Android Studio Giraffe or later.  
+Make sure you have Kotlin DSL support and Gradle version compatibility.
+
+---
+
+## 📬 Contact
+
+Let’s connect on [LinkedIn](https://www.linkedin.com) or check out more projects [here](https://github.com/yourusername).
+

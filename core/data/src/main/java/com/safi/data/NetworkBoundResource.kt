@@ -19,7 +19,7 @@ import java.net.SocketTimeoutException
 import javax.inject.Inject
 
 class NetworkBoundResource @Inject constructor(){
-    private  val ioDispatcher: CoroutineDispatcher = Dispatchers.Main
+    private  val ioDispatcher: CoroutineDispatcher = Dispatchers.IO
 
     suspend fun<ResultType> downloadData(api : suspend () -> Response<ResultType>): Flow<ApiResult<ResultType>> {
         return withContext(ioDispatcher) {

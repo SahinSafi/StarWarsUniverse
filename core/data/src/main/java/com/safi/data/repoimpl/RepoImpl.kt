@@ -36,6 +36,7 @@ class RepoImpl @Inject constructor(
     override suspend fun fetchStarships(page: Int): Flow<ApiResult<List<StarshipListItemEntity>>> {
         return mapResponseToEntity(
             response = networkBoundResource.downloadData {
+                delay(200)
                 apiService.fetchStarships(page)
             },
             mapper = starshipApiMapper
