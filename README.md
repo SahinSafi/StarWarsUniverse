@@ -51,5 +51,5 @@ Make sure you have Kotlin DSL support and Gradle version compatibility.
 
 ## 📬 Contact
 
-Let’s connect on [LinkedIn](https://www.linkedin.com) or check out more projects [here](https://github.com/yourusername).
+Let’s connect on [LinkedIn](https://www.linkedin.com/in/sahinsafi/) or check out more projects [here](https://github.com/SahinSafi/).
 
