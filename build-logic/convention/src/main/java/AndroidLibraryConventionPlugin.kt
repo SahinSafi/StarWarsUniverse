@@ -1,7 +1,5 @@
-
-
-import com.android.build.api.variant.LibraryAndroidComponentsExtension
 import com.android.build.gradle.LibraryExtension
+import com.safi.starwarsuniverse.SdkVersionConfig
 import com.safi.starwarsuniverse.configureKotlinAndroid
 import com.safi.starwarsuniverse.libs
 import org.gradle.api.Plugin
@@ -20,9 +18,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
 
             extensions.configure<LibraryExtension> {
                 configureKotlinAndroid(this)
-                defaultConfig.targetSdk = 35
-            }
-            extensions.configure<LibraryAndroidComponentsExtension> {
+                defaultConfig.targetSdk = SdkVersionConfig.TARGET_SDK_VERSION
             }
             configurations.configureEach {
                 resolutionStrategy {

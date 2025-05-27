@@ -1,7 +1,7 @@
 plugins {
-    alias(libs.plugins.convention.android.application)
-    alias(libs.plugins.convention.android.navigation)
-    alias(libs.plugins.convention.android.hilt)
+    alias(libs.plugins.convention.androidApplication)
+    alias(libs.plugins.convention.androidNavigation)
+    alias(libs.plugins.convention.androidHilt)
 }
 
 android {

@@ -11,9 +11,9 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             pluginManager.apply {
-                apply("convention.android.library")
-                apply("convention.android.navigation")
-                apply("convention.android.hilt")
+                apply("convention.androidLibrary")
+                apply("convention.androidNavigation")
+                apply("convention.androidHilt")
             }
             extensions.configure<LibraryExtension> {
                 defaultConfig {
@@ -22,7 +22,6 @@ class AndroidFeatureConventionPlugin : Plugin<Project> {
                 buildFeatures {
                     viewBinding = true
                 }
-                //configureGradleManagedDevices(this)
             }
 
             dependencies {

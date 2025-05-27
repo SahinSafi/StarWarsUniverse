@@ -1,4 +1,7 @@
 [versions]
+maxSdkVersion = "35"
+minSdkVersion = "24"
+
 agp = "8.9.3"
 kotlin = "2.1.20"
 ksp = "2.1.20-2.0.0"
@@ -76,18 +79,17 @@ ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devto
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }
 com-android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 androidx-navigation-safeargs = { id = "androidx.navigation.safeargs", version.ref = "navigationComponent" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 
 # Plugins defined by this project
-convention-android-application = { id = "convention.android.application", version = "unspecified"}
-convention-android-library = { id = "convention.android.library", version = "unspecified" }
-convention-android-navigation = { id = "convention.android.navigation", version = "unspecified" }
-convention-android-hilt = { id = "convention.android.hilt", version = "unspecified" }
-convention-feature = { id = "convention.feature", version = "unspecified" }
-convention-jvm-library = { id = "convention.jvm.library", version = "unspecified" }
-org-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "org-jetbrains-kotlin-jvm" }
+convention-androidApplication = { id = "convention.androidApplication" }
+convention-androidLibrary = { id = "convention.androidLibrary" }
+convention-androidNavigation = { id = "convention.androidNavigation" }
+convention-androidHilt = { id = "convention.androidHilt" }
+convention-feature = { id = "convention.feature" }
 
 [bundles]
 network = ["retrofit2-core", "retrofit2-rx3adapter", "retrofit2-gsonconverter", "okhHttp3-core", "okhHttp3-interceptor", "gson"]

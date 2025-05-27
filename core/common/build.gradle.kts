@@ -1,11 +1,7 @@
 plugins {
-    alias(libs.plugins.convention.android.library)
+    alias(libs.plugins.convention.androidLibrary)
 }
 
 android {
     namespace = "com.safi.common"
-}
-
-dependencies {
-    implementation(libs.material)
 }

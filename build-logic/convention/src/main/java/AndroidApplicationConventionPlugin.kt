@@ -1,9 +1,9 @@
 import com.android.build.api.dsl.ApplicationExtension
+import com.safi.starwarsuniverse.SdkVersionConfig
 import com.safi.starwarsuniverse.configureKotlinAndroid
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
-import com.android.build.api.variant.ApplicationAndroidComponentsExtension
 
 class AndroidApplicationConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
@@ -16,11 +16,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
 
             extensions.configure<ApplicationExtension> {
                 configureKotlinAndroid(this)
-                defaultConfig.targetSdk = 35
-                //configureGradleManagedDevices(this)
-            }
-            extensions.configure<ApplicationAndroidComponentsExtension> {
-                //configurePrintApksTask(this)
+                defaultConfig.targetSdk = SdkVersionConfig.TARGET_SDK_VERSION
             }
         }
     }
